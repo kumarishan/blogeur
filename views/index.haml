@@ -1,0 +1,429 @@
+%html
+  %head
+    %link(rel="stylesheet" type="text/css" href="css/bootstrap.css")
+    :css
+      body {
+        padding-top: 60px;
+        padding-botton: 40px;
+        background-position: left 40px;
+        background-attachment: fixed;
+        background-repeat: repeat;
+        background-color: #FAFAFA;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 16px;
+      }
+      .sidebar-nav {
+        padding: 9px 0px 10px 0;
+      }
+      .container-fluid {
+        padding-left: 250px;
+        padding-right: 250px;
+      }
+
+    %link(rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css")
+    %link(href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic' rel='stylesheet' type='text/css')    
+    %link(rel="stylesheet" type="text/css" href="css/font-awesome.css")
+
+    :css
+      .container-940 {
+        width:1000px;
+      }
+      .container-780 {
+        height: 780px;
+      }
+      .sidebar{
+        margin-top: -10px;
+        width: 200px;
+      }
+      .well {
+        height: 100%;
+        border-radius: 0px;
+        -moz-border-radius: 0px;
+      }
+      .search-query {
+        height: 28px;
+      }
+      .main-content {
+        width: 740px;
+        margin-left: 0px;
+        margin-top: -10px;
+      }
+      .footer-hr {
+        margin-top: 0px;
+      }
+      .adjust-padding-bottom {
+        padding-bottom: 15px;
+      }
+      .remove-margin-bottom {
+        margin-bottom: 0px;
+      }
+      .nav-list > li > a,
+      .nav-list .nav-header {
+        padding: 5px 18px;
+      }
+      .profile-pic-container {
+        padding: 10px 10px 10px 0px;
+      } 
+      .profile-pic {
+        float: left;
+        height: 50px;
+        width: 50px;
+        overflow:hidden;
+        padding: 5px;
+        padding-left: 18px;
+        padding-right: 10px;
+      }
+      dep {
+        font-size: 10px;
+      }
+      year {
+        font-size: 10px;
+      }
+      .sidebar-count {
+        margin-right: -12px;
+        float: right;
+      }
+      .navbar .app-logo {
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 500;
+      }
+      .transparent {
+        background: url(img/wash-white-30.png);
+      }
+      .inside-main{
+        margin: 0px;
+        padding: 1px;
+        position: relative;
+      }
+      .encap-main {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 20px;
+      }
+      .inside-container {
+        margin: 0px;
+        padding: 0px;
+      }
+      hr {
+        border-color: gray;
+      }
+      .breadcrumb {
+        margin-bottom: 5px;
+      }
+      .main-header-partition {
+        margin: 5px;
+      }
+      .book-pic-medium {
+        height: 100px;
+        width: 75px;
+      }
+      .activity-feed {
+        margin: 2px 2px 10px 6px;
+      }
+      .activity-container {
+        display: block;
+      }
+      
+      .activity-book-topic { 
+        margin: 1px 1px 8px 1px;
+      }
+      .activity-user {
+        float: left;
+        margin-right: 10px;
+      }
+      .activity-detail {
+        float: left; 
+      }
+      .activity-book-image {
+        padding-left: 5px;
+        float: left;
+      }
+      .activity-book-detail {
+        padding: 0px 0px 0px 8px;  
+        float: left;
+      }
+      .activity-book-name {
+        font: bold 15px arial,sans-serif;
+        color: #04070B;
+      }
+      .activity-book-author {
+        margin-left: 4px;
+        font-style: italic;
+        font-type: arial,sans-serif;
+        color: #1F3D5C;
+      }
+      .activity-book-description {
+        margin-left: 4px;
+        font-style: italic;
+        font-type: arial,sans-serif;
+        color: #1F3D5C;
+      }
+      .activity-book-comment {
+        width: 50%;
+        display: block;
+        margin-left: 20px;
+        margin-bottom: 2px;
+        background-color: #EEEEEC;
+        padding: 2px;
+        color: #1F3D5C;
+      }
+      .activity-comment-user {
+        display: block;
+        float: left;
+      }
+      .activity-comment {
+        display: block;
+        float: left;
+        padding-left: 5px;
+      }
+      .activity-partition {
+        margin: 5px;
+        border-color: #DEE8E8;
+      }
+      .main-content-fixed-layout {
+        padding-bottom: 790px;
+        margin-bottom: -800px;
+      }
+      .search-box {
+        display: block;
+        float: left;
+        height: 30px;
+        width: 100%
+      }
+      .search-form {
+        padding:19px;
+        min-height: 20px;
+        background-color: whiteSmoke;
+        height: 100%;
+      }
+      .remove-border {
+        border: none;
+      }
+      .remove-border-radius {
+        border-radius: 0;
+      }
+      .search-partition {
+        margin: 40px 5px 5px 5px;
+        border-color: #DEE8E8;
+      }
+      .search-result-container {
+        padding: 0px;
+      }
+      .search-result-row {
+        padding: 0px 12px 0px 12px;
+        width: auto;
+      }
+      .search-result-item {
+        float: left;
+        width: 152px;
+        height: 180px;
+        margin: 10px 5px 5px 5px;
+        padding: 10px 5px 10px 5px;
+      }
+      .search-book-image {
+        margin-left: 24px;
+        height: 140px;
+      }
+      .search-book-name {
+        font: bold auto arial,sans-serif; 
+        color: #04070B;
+        text-align: center;
+      }
+      .search-book-author {
+        font-style: italic;
+        color: #1F3D5C;
+        text-align:center;
+      }
+      .search-item-extras {
+        display: none;
+      }
+      .search-result-item:hover > div.search-item-extras {
+        display: block;
+      }
+      .search-item-extras {
+        text-align: center;
+        letter-spacing: 6px;
+      }
+      .search-item-extras:hover > a {
+        opacity: 0.5;
+      }
+      .search-item-extras:hover > a:hover {
+        opacity: 1.0;
+      }
+      #search-detail {
+        position:absolute;
+        display:none;
+        z-index:10;
+        opacity: 1.0;
+        background-color: gray;
+      }
+      .user-small {
+        height: 38px;
+        width: 36px;
+      }
+      .navbar {
+        height: 60px;
+      }
+      .navbar .brand {
+        padding: 12px 20px 12px;
+        font-size: 32px;
+      }
+      .navbar-inner {
+        height: 100%;
+      }
+      .user-info {
+        float: left;
+        width: 150px;
+        height: 100%;
+        text-align: left;
+        padding-top: 10px;
+      }
+      .nav {
+        margin-top: 40px;
+      }
+      li { 
+        height: auto;
+        padding: 4px;
+        padding-top: 10px;
+      }
+      .space-info {
+        font-size: 10px;
+      }
+      .space-info > a {
+        padding: 1px;
+        color: #999;
+        font-size: 11px;
+      }
+
+      .space-name {
+        font-size: 20px;
+        color: black;
+        font-weight: 500;
+       }
+       .row-fluid > .main-content {
+         margin-left: 0px;
+         padding-top: 10px;
+       }
+       .post-info {
+         float: left;
+       }
+       .post-actions {
+         float: right;
+       }
+       .post-actions > div {
+         float: left;
+         padding: 14px 14px 0px 0px;
+         font-size: 13px;
+         color: #666;
+       }
+       .post-info > div {
+         padding: 14px 14px 0px 0px;
+         float: left;
+         font-size: 13px;
+         color: #666;
+       }
+       .post-info > div > i {
+       }
+       .posts {
+         margin-left: 20px;
+         padding: 10px;
+       }
+       .post-title > a {
+         font-size: 16px;
+         font-weight: 500;
+         color: black;
+       }
+       .posts:hover {
+         background-color: #F1F1F1;
+       }
+       #main-content .space {
+         margin-top: 15px;
+         margin-left: 20px;
+       }
+       #main-content .space-actions {
+         margin-top: 4px;
+         margin-left: 20px;
+         margin-bottom: 30px;
+       }
+       #main-content .space > .space-profile-pic {
+         padding: 10px;
+         padding-left: 0px;
+         float: left;
+       }
+
+       #main-content .space > .space-name {
+         font-size: 25px;
+         font-weight: 700;
+         padding: 10px;
+         padding-left: 68px;
+         padding-top: 12px;
+       }
+       #main-content .space > .space-url {
+         padding-left: 72px;
+       }
+       #main-content .space > .space-url > a {
+         font-size: 12px;
+         color: #999;
+       }
+       .space-new-post > .input-prepend > input {
+         border: 0;
+         border-left: 4px solid;
+         font-size: 16px;
+         height: 36px;
+         width: 75%;
+       }
+       .space-new-post {
+         margin-left: 20px;
+       }
+       .loader {
+         margin-left: 50%;
+         margin-right: 50%;
+         margin-top: 100px;
+       } 
+       .new-post-actions {
+         display: none;
+         margin-top: 10px;
+         margin-bottom: 10px;
+       }
+       .new-post-actions > a {
+         margin-right: 5px;
+       }
+    %script(src="js/jquery.js" type="text/javascript")
+    %script(src="js/bootstrap-dropdown.js" type="text/javascript")
+    %script(src="js/json2.js" type="text/javascript")
+    %script(src="js/blogeur.js" type="text/javascript")    
+    %script(src="js/tiny_mce/tiny_mce.js" type="text/javascript")    
+  %body
+    %div.navbar.navbar-fixed-top
+      %div.navbar-inner
+        %div.container.container-940
+          %a.brand.app-logo(href="#") blogeur
+    %div.container.container-940.container-780#container(style="height: auto;")
+      %div.row-fluid(style="height: auto;")
+        %div.span3
+          %div.well.sidebar-nav
+            %div.row-fluid(style="height: 60px;")
+              %a.profile-pic(href="#{@user.profile_url}")
+                %img(src="#{@user.profile_pic}" alt="Kumar Ishan")
+              %strong.user-info= @user.display_name 
+            %ul.nav.nav-list#sidebar
+              - @spaces.each do |space|
+                %li
+                  %a.space-name(href="http://#{space.full_hostname}" data-url="#{space.hostname}")
+                    = space.name
+                  %div.space-info
+                    %a(href="http://posterous.com/manage##{space.hostname}/people") 
+                      - if space.followers_count == 1
+                        #{space.followers_count} Follower 
+                      - else
+                        #{space.followers_count} Followers
+                    %a(href="http://#{space.full_hostname}") 
+                      #{space.posts_count} Posts 
+                    %a(href="http://#{space.full_hostname}") 
+                      #{space.views_count} Views
+        %div.span13.main-content#main-content(style="height: auto;")
+          %div.container-fluid.inside-container#main-content(style="height: auto; min-height: 800px;")
+
+      %hr.footer-hr
+      %footer
+        %p@ Kumar Ishan 2012     

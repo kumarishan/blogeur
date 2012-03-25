@@ -1,0 +1,25 @@
+- @space.posts.each do |post|
+  %div.row-fluid.posts
+    %div.post-title
+      %a(href="#")
+        = post.title
+    %div.post-info
+      %div
+        = post.display_date
+      %div
+        %i.icon-comment
+        = post.comments_count
+      %div
+        %i.icon-heart
+        = post.likes_count
+      %div
+        %i.icon-eye-open
+        = post.views_count
+    %div.post-actions
+      %div
+        %i.icon-edit
+        Edit
+      %div
+        %i.icon-resize-full
+        Open 
+  %hr(style="border-color: white; border-top: 2px dashed #F1F1F1; margin: 10px 0; width: 100%;  margin-left: 20px;")

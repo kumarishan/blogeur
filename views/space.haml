@@ -1,0 +1,102 @@
+:javascript
+  $(function(){
+    tinyMCE.init({
+      mode: "textareas",
+      theme: "advanced",
+      plugins: "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave,visualblocks",
+      theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,styleselect,formatselect,fontselect,fontsizeselect",
+      theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+      theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
+      theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak",
+      theme_advanced_toolbar_location : "top",
+      theme_advanced_toolbar_align : "left",
+      theme_advanced_statusbar_location : "bottom",
+      theme_advanced_resizing : true,
+      
+      content_css: "css/content.css",
+
+      template_external_list_url : "lists/template_list.js",
+      external_link_list_url : "lists/link_list.js",
+      external_image_list_url : "lists/image_list.js",
+      media_external_list_url : "lists/media_list.js",
+ 
+      style_formats : [
+        {title : 'Bold text', inline : 'b'},
+        {title : 'Red text', inline : 'span', styles : {color : '#ff0000'}},
+        {title : 'Red header', block : 'h1', styles : {color : '#ff0000'}},        {title : 'Example 1', inline : 'span', classes : 'example1'},
+        {title : 'Example 2', inline : 'span', classes : 'example2'},
+        {title : 'Table styles'},
+        {title : 'Table row 1', selector : 'tr', classes : 'tablerow1'}
+      ]
+    });
+
+    $('#space-actions > div > div > a').on("click", function(event){
+      $('#space-content').html('<p><img src="/img/ajax-loader.gif" class="loader"/></p>');
+      $('#space-content').load(this.getAttribute('data-url'));
+      return false;//Stops page from scrolling to top
+    });
+    
+    $('#space-content').html('<p><img src="/img/ajax-loader.gif" class="loader"/></p>');
+    $('#space-content').load("/space/#{@space.hostname}/posts");
+
+    $("#sp-new-title").keypress(function(e){
+      if( e.which == 13){
+        $("#content").show();
+        $('.new-post-actions').show();
+        var ed = tinyMCE.get('content');
+        ed.show();
+      }
+    });
+
+    $(".new-post-actions > .cancel").on("click", function(event){
+      tinyMCE.get('content').setContent("");
+      tinyMCE.get('content').hide();
+      $(".new-post-actions").hide();
+      $("#content").hide();
+      $("#sp-new-title").val("");
+    }); 
+  });
+
+%div.row-fluid.space
+  %div.space-profile-pic
+    %img(src="#{@space.profile_image_75}")
+  %div.space-name
+    = @space.name
+  %div.space-url
+    %a(href="http://#{@space.full_hostname}")
+      = @space.full_hostname
+%div.row-fluid.space-actions#space-actions
+  %div
+    %div.btn-group
+      %a.btn(href="#" data-url="/space/#{@space.hostname}/posts")
+        %i.icon-refresh
+        Refresh
+      %a.btn(href="#" data-url="/space/#{@space.hostname}/posts")
+        %i.icon-file
+        Posts
+      %a.btn(href="#" data-url="/space/#{@space.hostname}/drafts")
+        %i.icon-pencil
+        Drafts
+      %a.btn(href="#" data-url="/space/#{@space.hostname}/queue")
+        %i.icon-th-list
+        Queue
+      %a.btn(href="#" data-url="/space/#{@space.hostname}/stats")
+        %i.icon-bar-chart
+        Stats
+%div.rowfluid.space-new-post
+  %div.input-prepend
+    %input.span5#sp-new-title(type="text" placeholder="Start typing here for new post's title...")
+  %div.new-post-body
+    %textarea#content(name = "content" style="display:none; width: 75%;")
+  %div.new-post-actions
+    %a.btn.btn-success
+      %i.icon-check.icon-large
+        Save and Publish
+    %a.btn.btn-info
+      %i.icon-file.icon-large
+        Save as Draft
+    %a.btn.btn-danger.cancel
+      %i.icon-trash.icon-large
+        Cancel
+ 
+%div#space-content
