@@ -2,9 +2,9 @@ require 'posterous'
 require 'cache'
 
 Posterous.config = {
-  'username' => 'your email address',
-  'password' => 'your password',
-  'api_token' => 'your token'
+  'username' => '',
+  'password' => '',
+  'api_token' => ''
 }
 
 class Blog
